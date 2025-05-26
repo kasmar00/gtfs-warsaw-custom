@@ -1,11 +1,11 @@
-feeds/warsaw-water-tram/latest.zip:
-	zip -r feeds/warsaw-water-tram/latest.zip feeds/warsaw-water-tram/*.txt
+feeds/warsaw-ferries/latest.zip:
+	zip -r feeds/warsaw-ferries/latest.zip feeds/warsaw-ferries/*.txt
 
 publish:
 	mkdir out
 	rsync --recursive --include="latest.zip" --filter="-! */" feeds out
 
-feeds: feeds/warsaw-water-tram/latest.zip
+feeds: feeds/warsaw-ferries/latest.zip
 
 all: feeds publish
 
