@@ -1,0 +1,2 @@
+feed_publisher_name,feed_id,feed_publisher_url,feed_lang,feed_start_date,feed_end_date,feed_version,default_lang,feed_contact_email,feed_contact_url
+kasmar00,,https://github.com/kasmar00/gtfs-warsaw-custom,pl,20250501,20250921,,,,

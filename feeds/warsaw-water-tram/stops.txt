@@ -1,0 +1,7 @@
+stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station,stop_timezone,wheelchair_boarding,platform_code
+W1L,,Cypel Czerniakowski,,52.229937,21.043464,,,,,,,
+W1R,,Saska Kępa,"52,2280111, 21,0492652",52.228011,21.049265,,,,,,,
+W2R,,Stadion Narodowy,,52.236963,21.041113,,,,,,,
+W2L,,Most Poniatowskiego,,52.235643,21.038298,,,,,,,
+W3L,,Podzamcze Fontanny,,52.254184,21.013858,,,,,,,
+W3R,,Zoo,,52.253764,21.018868,,,,,,,
