@@ -60,7 +60,6 @@ class LoadTrips(impuls.Task):
                         type=Route.Type.BUS,
                     )
                 )
-            
 
             files = [
                 ("Z1-weekday.txt", WEEKDAY_CAL_ID, "1"),
@@ -79,6 +78,7 @@ class LoadTrips(impuls.Task):
                 self.create_trips_from_file(file[0], file[1], file[2], r.db)
 
     def create_trips_from_file(self, file, calendar, route, db: DBConnection):
+        after_midnight = False
         data = (
             pd.read_csv(f"data/{file}", sep="\t", header=None)
             .transpose()
@@ -104,18 +104,24 @@ class LoadTrips(impuls.Task):
             for i in range(len(trip)):
                 if trip[i] == "~":
                     continue
-                if i+1 < len(trip) and stops[i]==stops[i+1]:
+                if i + 1 < len(trip) and stops[i] == stops[i + 1]:
                     continue
 
-                hour, minute = trip[i].split(":")
+                departure_time: TimePoint = _hour_to_time_point(trip[i])
 
-                departure_time = TimePoint(hours=int(hour), minutes=int(minute))
-                if i-1>=0 and stops[i]==stops[i-1]:
-                    prev_h, prev_m = trip[i-1].split(":")
-                    arrival_time = TimePoint(hours=int(prev_h), minutes=int(prev_m))
+                # Hack for trips finishing after midnight
+                if (
+                    i - 1 >= 0
+                    and trip[i - 1] != "~"
+                    and departure_time < _hour_to_time_point(trip[i - 1])
+                ) or (after_midnight):
+                    after_midnight = True
+                    departure_time += TimePoint(hours=24)
+
+                if i - 1 >= 0 and stops[i] == stops[i - 1]:
+                    arrival_time = _hour_to_time_point(trip[i - 1])
                 else:
                     arrival_time = departure_time
-
 
                 db.create(
                     StopTime(
@@ -131,3 +137,9 @@ class LoadTrips(impuls.Task):
         if stop_code not in self.saved_stops:
             self.saved_stops.add(stop_code)
             db.create(Stop(stop_code, "a", 0.0, 0.0, stop_code))
+
+
+def _hour_to_time_point(time: str) -> TimePoint:
+    print(time)
+    hour, minute = time.split(":")
+    return TimePoint(hours=int(hour), minutes=int(minute))
