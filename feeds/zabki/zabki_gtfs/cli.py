@@ -2,8 +2,10 @@ import impuls
 import argparse
 from impuls.model import Agency, FeedInfo
 from datetime import datetime
+from impuls.tools import polish_calendar_exceptions
 
 from .load_trips import LoadTrips
+from .calendar_exceptions import CalendarExceptions
 
 GTFS_HEADERS = {
     "agency.txt": (
@@ -69,7 +71,7 @@ GTFS_HEADERS = {
         "sunday",
         "start_date",
         "end_date",
-    )
+    ),
 }
 
 
@@ -100,6 +102,7 @@ class ZabkiGTFS(impuls.App):
                     task_name="AddFeedInfo",
                 ),
                 LoadTrips(),
+                CalendarExceptions(),
                 impuls.tasks.ModifyRoutesFromCSV("routes.csv", must_curate_all=True),
                 impuls.tasks.ModifyStopsFromCSV("stops.csv"),
                 impuls.tasks.GenerateTripHeadsign(),
@@ -110,9 +113,10 @@ class ZabkiGTFS(impuls.App):
             ],
             resources={
                 "routes.csv": impuls.LocalResource("routes.csv"),
-                "stops.csv": impuls.LocalResource("stops.csv")
+                "stops.csv": impuls.LocalResource("stops.csv"),
+                "calendar_exceptions.csv": polish_calendar_exceptions.RESOURCE,
             },
-            options=options
+            options=options,
         )
 
 

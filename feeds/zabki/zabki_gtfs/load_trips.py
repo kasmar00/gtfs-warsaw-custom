@@ -4,10 +4,7 @@ from impuls import DBConnection, Task, TaskRuntime
 from impuls.model import Calendar, Date, Route, Stop, StopTime, TimePoint, Trip
 import pandas as pd
 import uuid
-
-WEEKDAY_CAL_ID = "1"
-SAT_CAL_ID = "2"
-SUN_CAL_ID = "3"
+from .consts import WEEKDAY_CAL_ID, SAT_CAL_ID, SUN_CAL_ID, START_DATE, END_DATE
 
 
 class LoadTrips(impuls.Task):
@@ -26,8 +23,8 @@ class LoadTrips(impuls.Task):
                     wednesday=True,
                     thursday=True,
                     friday=True,
-                    start_date="2024-10-12",
-                    end_date="2025-12-31",
+                    start_date=START_DATE,
+                    end_date=END_DATE,
                 )
             )
 
@@ -35,8 +32,8 @@ class LoadTrips(impuls.Task):
                 Calendar(
                     id=SAT_CAL_ID,
                     saturday=True,
-                    start_date="2024-10-12",
-                    end_date="2025-12-31",
+                    start_date=START_DATE,
+                    end_date=END_DATE,
                 )
             )
 
@@ -44,8 +41,8 @@ class LoadTrips(impuls.Task):
                 Calendar(
                     id=SUN_CAL_ID,
                     sunday=True,
-                    start_date="2024-10-12",
-                    end_date="2025-12-31",
+                    start_date=START_DATE,
+                    end_date=END_DATE,
                 )
             )
 
@@ -96,7 +93,6 @@ class LoadTrips(impuls.Task):
                     id=trip_id,
                     route_id=route,
                     calendar_id=calendar,
-                    headsign="???",
                     short_name=route,
                 )
             )
@@ -140,6 +136,5 @@ class LoadTrips(impuls.Task):
 
 
 def _hour_to_time_point(time: str) -> TimePoint:
-    print(time)
     hour, minute = time.split(":")
     return TimePoint(hours=int(hour), minutes=int(minute))
