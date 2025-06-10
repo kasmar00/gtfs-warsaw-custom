@@ -1,4 +1,5 @@
 route_id,agency_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_branding_url,route_color,route_text_color,route_sort_order,continuous_pickup,continuous_drop_off
-lg37,,W1,Słonka W1,c,1000,example.com,example.com,913c3c,FFFFFF,1,1,1
-f80h,,W3,Wilga W3,,1000,,,62A9AA,FFFFFF,,,
-ghn1,,W2,Pliszka W2,,1000,,,B976A9,FFFFFF,,,
+lg37,1,W1,Słonka W1,,4,example.com,example.com,913c3c,FFFFFF,1,1,1
+ghn1,1,W2,Pliszka W2,,4,,,B976A9,FFFFFF,,,
+f80h,1,W3,Wilga W3,,4,,,62A9AA,FFFFFF,,,
+D,2,Prom Dudek,,,4,,,345b75,FFFFFF,,,

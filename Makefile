@@ -1,7 +1,7 @@
 all: feeds publish
 
 feeds/warsaw-ferries/latest.zip:
-	zip -r feeds/warsaw-ferries/latest.zip feeds/warsaw-ferries/*.txt
+	cd feeds/warsaw-ferries && zip -j ../warsaw-ferries/latest.zip *.txt
 
 feeds/zabki/latest.zip:
 	$(MAKE) -C feeds/zabki
