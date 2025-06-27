@@ -36,7 +36,7 @@ class CalendarExceptions(impuls.Task):
             day_of_week = date.weekday()
 
             if day_of_week == 6:
-                if exception.typ == CalendarExceptionType.COMMERCIAL_SUNDAY:
+                if CalendarExceptionType.COMMERCIAL_SUNDAY in exception.typ:
                     to_remove = SUN_CAL_ID
                     to_add = SAT_CAL_ID
             elif day_of_week == 5:
