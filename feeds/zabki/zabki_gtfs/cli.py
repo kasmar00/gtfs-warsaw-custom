@@ -6,6 +6,7 @@ from impuls.tools import polish_calendar_exceptions
 
 from .load_trips import LoadTrips
 from .calendar_exceptions import CalendarExceptions
+from .consts import START_DATE, END_DATE
 
 GTFS_HEADERS = {
     "agency.txt": (
@@ -32,6 +33,7 @@ GTFS_HEADERS = {
         "service_id",
         "trip_headsign",
         "trip_short_name",
+        "block_id",
     ),
     "stop_times.txt": (
         "trip_id",
@@ -39,7 +41,6 @@ GTFS_HEADERS = {
         "stop_id",
         "arrival_time",
         "departure_time",
-        "platform",
     ),
     "calendar_dates.txt": ("service_id", "date", "exception_type"),
     "transfers.txt": (
@@ -96,6 +97,8 @@ class ZabkiGTFS(impuls.App):
                     entity=FeedInfo(
                         publisher_name="kasmar00",
                         publisher_url="https://github.com/kasmar00/gtfs-warsaw-custom",
+                        start_date=START_DATE,
+                        end_date=END_DATE,
                         lang="pl",
                         version=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     ),

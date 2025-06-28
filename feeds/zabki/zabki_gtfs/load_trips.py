@@ -76,6 +76,7 @@ class LoadTrips(impuls.Task):
 
     def create_trips_from_file(self, file, calendar, route, db: DBConnection):
         after_midnight = False
+        has_blocks = False
         data = (
             pd.read_csv(f"data/{file}", sep="\t", header=None)
             .transpose()
@@ -83,7 +84,10 @@ class LoadTrips(impuls.Task):
         )
         stops = data[0]
         for stop in stops:
-            self.create_stop(stop, db)
+            if (stop == "block"):
+                has_blocks = True
+                continue
+            self.create_stop(int(stop), db)
         for trip in data[1:]:
 
             trip_id = str(uuid.uuid4())
@@ -94,10 +98,13 @@ class LoadTrips(impuls.Task):
                     route_id=route,
                     calendar_id=calendar,
                     short_name=route,
+                    block_id=trip[0] if has_blocks else None,
                 )
             )
 
             for i in range(len(trip)):
+                if (i == 0 and has_blocks):
+                    continue
                 if trip[i] == "~":
                     continue
                 if i + 1 < len(trip) and stops[i] == stops[i + 1]:
@@ -107,7 +114,7 @@ class LoadTrips(impuls.Task):
 
                 # Hack for trips finishing after midnight
                 if (
-                    i - 1 >= 0
+                    i - 1 >= (1 if has_blocks else 0)
                     and trip[i - 1] != "~"
                     and departure_time < _hour_to_time_point(trip[i - 1])
                 ) or (after_midnight):
@@ -131,6 +138,7 @@ class LoadTrips(impuls.Task):
 
     def create_stop(self, stop_code, db: DBConnection) -> None:
         if stop_code not in self.saved_stops:
+            # print(f"Creating stop {stop_code}, {stop_code not in self.saved_stops}, previously saved: {self.saved_stops}")
             self.saved_stops.add(stop_code)
             db.create(Stop(stop_code, "a", 0.0, 0.0, stop_code))
 
