@@ -5,6 +5,7 @@ from datetime import datetime
 from impuls.tools import polish_calendar_exceptions
 
 from .load_trips import LoadTrips
+from .shapes import LoadShapes
 from .calendar_exceptions import CalendarExceptions
 from .consts import START_DATE, END_DATE
 
@@ -34,6 +35,7 @@ GTFS_HEADERS = {
         "trip_headsign",
         "trip_short_name",
         "block_id",
+        "shape_id",
     ),
     "stop_times.txt": (
         "trip_id",
@@ -73,6 +75,12 @@ GTFS_HEADERS = {
         "start_date",
         "end_date",
     ),
+    "shapes.txt": (
+        "shape_id",
+        "shape_pt_lat",
+        "shape_pt_lon",
+        "shape_pt_sequence",
+    ),
 }
 
 
@@ -104,6 +112,7 @@ class ZabkiGTFS(impuls.App):
                     ),
                     task_name="AddFeedInfo",
                 ),
+                LoadShapes(),
                 LoadTrips(),
                 CalendarExceptions(),
                 impuls.tasks.ModifyRoutesFromCSV("routes.csv", must_curate_all=True),

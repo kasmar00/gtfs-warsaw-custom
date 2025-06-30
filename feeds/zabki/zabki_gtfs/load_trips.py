@@ -99,6 +99,7 @@ class LoadTrips(impuls.Task):
                     calendar_id=calendar,
                     short_name=route,
                     block_id=trip[0] if has_blocks else None,
+                    shape_id="Z2M" if route=="2" else None, # Z2M has shape, others don't
                 )
             )
 
@@ -138,7 +139,6 @@ class LoadTrips(impuls.Task):
 
     def create_stop(self, stop_code, db: DBConnection) -> None:
         if stop_code not in self.saved_stops:
-            # print(f"Creating stop {stop_code}, {stop_code not in self.saved_stops}, previously saved: {self.saved_stops}")
             self.saved_stops.add(stop_code)
             db.create(Stop(stop_code, "a", 0.0, 0.0, stop_code))
 
