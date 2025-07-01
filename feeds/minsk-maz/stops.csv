@@ -1,0 +1,126 @@
+stop_id,stop_code,stop_name,stop_lat,stop_lon
+100,100,Mińsk Maz. 11 Listopada 01,52.184481,21.558975
+101,101,Mińsk Maz. 11 Listopada 02,52.184115,21.559450
+102,102,Mińsk Maz. Bagnista 01,52.191494,21.560466
+103,103,Mińsk Maz. Bagnista 04,52.191479,21.559968
+104,104,Mińsk Maz. Boczna 02,52.186723,21.559500
+105,105,Mińsk Maz. Boczna 07,52.186851,21.559385
+106,106,Mińsk Maz. Budowlana 01,52.184198,21.571856
+107,107,Mińsk Maz. Budowlana 02,52.184245,21.574551
+108,108,Mińsk Maz. Chemik 02,52.175188,21.572626
+109,109,Mińsk Maz. Chemik 05,52.175255,21.573050
+110,110,Mińsk Maz. Chełmońskiego 02,52.184347,21.568394
+111,111,Mińsk Maz. Chełmońskiego 05,52.184143,21.567959
+112,112,Mińsk Maz. Chrobrego 02,52.179450,21.584118
+113,113,Mińsk Maz. Chrobrego 03,52.179420,21.584017
+114,114,Mińsk Maz. Cmentarz 05,52.184206,21.578475
+115,115,Mińsk Maz. Cmentarz 06,52.183876,21.579567
+116,116,Mińsk Maz. Cmentarz Żydowski 01,52.173150,21.584500
+117,117,Mińsk Maz. Cmentarz Żydowski 06,52.173020,21.584720
+118,118,Mińsk Maz. Dąbrówki 01,52.175166,21.581533
+119,119,Mińsk Maz. Dąbrówki 04,52.175037,21.581424
+120,120,Mińsk Maz. Dźwigowa 01,52.172490,21.564401
+121,121,Mińsk Maz. Dźwigowa 02,52.172391,21.564460
+122,122,Mińsk Maz. FUD 02,52.173848,21.557461
+123,123,Mińsk Maz. FUD 03,52.173911,21.557419
+124,124,Mińsk Maz. Jagiellońska 03,52.190428,21.552127
+125,125,Mińsk Maz. Jagiellońska 04,52.190205,21.552256
+126,126,Mińsk Maz. Jana Pawła II 02,52.182780,21.551910
+127,127,Mińsk Maz. Jana Pawła II 03,52.182990,21.552030
+128,128,Mińsk Maz. Jasna 01,52.186524,21.570179
+129,129,Mińsk Maz. Jasna 02,52.186653,21.570376
+130,130,Mińsk Maz. Karolina 03,52.191512,21.572438
+131,131,Mińsk Maz. Karolina 04,52.191719,21.572509
+132,132,Mińsk Maz. Kazikowskiego 02,52.179700,21.560517
+133,133,Mińsk Maz. Kazikowskiego 03,52.179897,21.561024
+134,134,Mińsk Maz. Kędzierak 01,52.164331,21.529217
+135,135,Mińsk Maz. Kędzierak 02,52.164387,21.528955
+136,136,Mińsk Maz. Klonowa 45,52.167284,21.568447
+137,137,Mińsk Maz. Klonowa Osiedle 03,52.166145,21.571734
+138,138,Mińsk Maz. Kościelna 01,52.180520,21.573440
+139,139,Mińsk Maz. Kościelna 02,52.179832,21.572894
+140,140,Mińsk Maz. Kościuszki 02,52.181613,21.558718
+141,141,Mińsk Maz. Krasickiego 01,52.196169,21.563863
+142,142,Mińsk Maz. Krasickiego 04,52.196199,21.564948
+143,143,Mińsk Maz. Kwiatowa 02,52.192405,21.556186
+144,144,Mińsk Maz. Kwiatowa 03,52.192382,21.556664
+145,145,Mińsk Maz. Langiewicza 01,52.170721,21.568371
+146,146,Mińsk Maz. Langiewicza 02,52.170708,21.568184
+147,147,Mińsk Maz. Leśna 03,52.193337,21.562562
+148,148,Mińsk Maz. Leśna 06,52.193580,21.562806
+149,149,Mińsk Maz. Licealna 02,52.179592,21.548748
+150,150,Mińsk Maz. Licealna 03,52.179677,21.548828
+151,151,Mińsk Maz. Ludowa 01,52.166206,21.577527
+152,152,Mińsk Maz. Ludowa 04,52.166149,21.577308
+153,153,Mińsk Maz. Małaszczyckiej 01,52.195754,21.570531
+154,154,Mińsk Maz. Małaszczyckiej 02,52.196041,21.570111
+155,155,Mińsk Maz. Mechanik 15,52.171630,21.543540
+156,156,Mińsk Maz. Mechanik 16,52.171778,21.544412
+157,157,Mińsk Maz. Mickiewicza 01,52.176680,21.584490
+158,158,Mińsk Maz. Mickiewicza 02,52.176760,21.584190
+159,159,Mińsk Maz. Miejska Szkoła Artystyczna 01,52.181620,21.557230
+160,160,Mińsk Maz. Miejska Szkoła Artystyczna 04,52.181784,21.555938
+161,161,Mińsk Maz. Mireckiego 01,52.176642,21.566826
+162,162,Mińsk Maz. Mireckiego 02,52.176540,21.568210
+163,163,Mińsk Maz. Nowy Świat 01,52.192611,21.553757
+164,164,Mińsk Maz. Nowy Świat 06,52.192680,21.553923
+165,165,Mińsk Maz. Okrzei 04,52.180342,21.557958
+166,166,Mińsk Maz. Osiedlowa 01,52.165152,21.524212
+167,167,Mińsk Maz. Osiedlowa 12,52.165229,21.524613
+168,168,Mińsk Maz. PKP Anielina 01,52.168660,21.586355
+169,169,Mińsk Maz. PKP Anielina 02,52.168462,21.586057
+170,170,Mińsk Maz. Piękna 01,52.177494,21.549817
+171,171,Mińsk Maz. Piękna 04,52.177496,21.549678
+172,172,Mińsk Maz. Plac Dworcowy 01,52.176563,21.554028
+173,173,Mińsk Maz. Przedszkole Miejskie nr 5 01,52.180250,21.562650
+174,174,Mińsk Maz. Przedszkole Miejskie nr 5 02,52.179970,21.562890
+175,175,Mińsk Maz. Rondo Bitwy Warszawskiej 1920 r. 01,52.177994,21.558873
+176,176,Mińsk Maz. Rondo Dziąga 03,52.183129,21.576054
+177,177,Mińsk Maz. Rondo Dziąga 04,52.182908,21.575934
+178,178,Mińsk Maz. Rondo Żołnierzy Wyklętych 02,52.188150,21.542610
+179,179,Mińsk Maz. Rudzkiego 01,52.173383,21.562229
+180,180,Mińsk Maz. Rudzkiego 04,52.173298,21.562267
+181,181,Mińsk Maz. Serbinów 02,52.177808,21.588637
+182,182,Mińsk Maz. Serbinów 03,52.177360,21.588815
+183,183,Mińsk Maz. Sienkiewicza 01,52.186510,21.552530
+184,184,Mińsk Maz. Sienkiewicza 06,52.186340,21.552470
+185,185,Mińsk Maz. Siennicka 47,52.177640,21.570720
+186,186,Mińsk Maz. Sosnkowskiego 13,52.169116,21.536131
+187,187,Mińsk Maz. Sosnkowskiego 14,52.169211,21.536703
+188,188,Mińsk Maz. Spacerowa 04,52.165843,21.568105
+189,189,Mińsk Maz. Szkoła Podstawowa nr 2 02,52.177050,21.576580
+190,190,Mińsk Maz. Szkoła Podstawowa nr 5 01,52.188620,21.554946
+191,191,Mińsk Maz. Szkoła Podstawowa nr 5 02,52.188840,21.554796
+192,192,Mińsk Maz. Szkoła Podstawowa nr 6 19,52.174720,21.552760
+193,193,Mińsk Maz. Szkoła Podstawowa nr 6 20,52.174980,21.554280
+194,194,Mińsk Maz. Szpital 03,52.174180,21.579200
+195,195,Mińsk Maz. Szpital 04,52.174330,21.577800
+196,196,Mińsk Maz. Szpitalna 01,52.173532,21.570414
+197,197,Mińsk Maz. Szpitalna 02,52.173413,21.569630
+198,198,Mińsk Maz. Targowisko 01,52.185330,21.556350
+199,199,Mińsk Maz. Targowisko 06,52.185520,21.556240
+200,200,Mińsk Maz. Tartaczna 01,52.181160,21.549720
+201,201,Mińsk Maz. Tartaczna 02,52.181220,21.549350
+202,202,Mińsk Maz. Urząd Gminy 03,52.183682,21.565268
+203,203,Mińsk Maz. Urząd Gminy 04,52.183988,21.564223
+204,204,Mińsk Maz. Urząd Miasta 03,52.181066,21.559278
+205,205,Mińsk Maz. Urząd Skarbowy 01,52.183700,21.562180
+206,206,Mińsk Maz. Urząd Skarbowy 02,52.183810,21.562400
+207,207,Mińsk Maz. Warszawska 01,52.186690,21.544030
+208,208,Mińsk Maz. Warszawskie Przedmieście - Osiedle 02,52.188450,21.544460
+209,209,Mińsk Maz. Warszawskie Przedmieście 03,52.187630,21.548350
+210,210,Mińsk Maz. Warszawskie Przedmieście 04,52.187520,21.548000
+211,211,Mińsk Maz. Wiejska 01,52.165404,21.539463
+212,212,Mińsk Maz. Wiejska 02,52.165397,21.538943
+213,213,Mińsk Maz. Widok 17,52.173540,21.549050
+214,214,Mińsk Maz. Widok 18,52.173716,21.550192
+215,215,Mińsk Maz. Zespół Szkolno-Przedszkolny nr 1 02,52.177408,21.576096
+216,216,Mińsk Maz. Łupińskiego 01,52.172631,21.587660
+217,217,Mińsk Maz. Łupińskiego 02,52.172270,21.587830
+218,218,Mińsk Maz. Łupińskiego 03,52.172721,21.586972
+219,219,Mińsk Maz. Łąkowa 01,52.170740,21.564794
+220,220,Mińsk Maz. Łąkowa 02,52.170816,21.564864
+221,221,Mińsk Maz. Śniadeckich 01,52.174030,21.574800
+222,222,Mińsk Maz. Śniadeckich 04,52.173850,21.574510
+223,223,Mińsk Maz. Żwirowa 01,52.182375,21.583805
+224,224,Mińsk Maz. Żwirowa 04,52.182129,21.583918
