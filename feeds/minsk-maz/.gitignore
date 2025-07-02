@@ -1,0 +1,5 @@
+.venv
+_impuls_workspace
+*.pyc
+*.zip
+cache
