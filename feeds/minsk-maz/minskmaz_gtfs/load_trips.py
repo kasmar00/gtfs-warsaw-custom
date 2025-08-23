@@ -58,33 +58,33 @@ class LoadTrips(impuls.Task):
                 )
 
             files = [
-                ("M1-weekday.txt", WEEKDAY_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1"),
-                ("M1-saturday.txt", SAT_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1"),
-                ("M1-sunday.txt", SUN_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1"),
+                ("M1-weekday.txt", WEEKDAY_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1", ""),
+                ("M1-saturday.txt", SAT_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1", ""),
+                ("M1-sunday.txt", SUN_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1", ""),
 
-                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2"), #TODO: ring line pl. dworcowy -> pl dworcowy
-                ("M2-saturday.txt", SAT_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2"),
-                ("M2-sunday.txt", SUN_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2"),
+                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", ""), #TODO: ring line pl. dworcowy -> pl dworcowy
+                ("M2-saturday.txt", SAT_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", ""),
+                ("M2-sunday.txt", SUN_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", ""),
 
-                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3-weekday"), #TODO
-                ("M3-saturday.txt", SAT_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3"),
-                ("M3-sunday.txt", SUN_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3"),
-                ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", "Mechanik", "M3R-weekday"),
-                ("M3R-saturday.txt", SAT_CAL_ID, "3", "Osiedlowa", "M3R"),
-                ("M3R-sunday.txt", SUN_CAL_ID, "3", "Osiedlowa", "M3R"),
+                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3-weekday", "0"), #TODO
+                ("M3-saturday.txt", SAT_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "0"),
+                ("M3-sunday.txt", SUN_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "0"),
+                ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", "Mechanik", "M3R-weekday", "1"),
+                ("M3R-saturday.txt", SAT_CAL_ID, "3", "Osiedlowa", "M3R", "1"),
+                ("M3R-sunday.txt", SUN_CAL_ID, "3", "Osiedlowa", "M3R", "1"),
 
-                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4"), #TODO: Ring line pl. dworcowy -> pl dworcowy
-                ("M4-saturday.txt", SAT_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4"),
-                ("M4-sunday.txt", SUN_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4"),
+                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", ""), #TODO: Ring line pl. dworcowy -> pl dworcowy
+                ("M4-saturday.txt", SAT_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", ""),
+                ("M4-sunday.txt", SUN_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", ""),
 
-                ("Z3-weekday.txt", WEEKDAY_CAL_ID, "5", "Dźwigowa", "Z3"),
-                ("Z3R-weekday.txt", WEEKDAY_CAL_ID, "5", "Osiedlowa", "Z3R"),
+                ("Z3-weekday.txt", WEEKDAY_CAL_ID, "5", "Dźwigowa", "Z3", "0"),
+                ("Z3R-weekday.txt", WEEKDAY_CAL_ID, "5", "Osiedlowa", "Z3R", "1"),
             ]
 
             for file in files:
-                self.create_trips_from_file(file[0], file[1], file[2], file[3], file[4], r.db)
+                self.create_trips_from_file(file[0], file[1], file[2], file[3], file[4], file[5], r.db)
 
-    def create_trips_from_file(self, file, calendar, route, headsign, shape, db: DBConnection):
+    def create_trips_from_file(self, file, calendar, route, headsign, shape, direction, db: DBConnection):
         after_midnight = False
         has_blocks = False
         data = (
@@ -111,6 +111,7 @@ class LoadTrips(impuls.Task):
                     headsign=headsign,
                     block_id=trip[0] if has_blocks else None,
                     shape_id=shape if shape else None,
+                    direction=Trip.Direction.INBOUND if direction == "1" else Trip.Direction.OUTBOUND if direction == "0" else None
                 )
             )
 
