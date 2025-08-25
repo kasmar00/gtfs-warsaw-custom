@@ -119,7 +119,7 @@ class LoadTrips(impuls.Task):
                     short_name=route,
                     headsign=headsign,
                     block_id=trip[0] if has_blocks else None,
-                    shape_id=shape if shape else None,
+                    shape_id=(shape + "A" if trip[1] == "~" else shape) if shape else None,
                     direction=Trip.Direction.INBOUND if direction == "1" else Trip.Direction.OUTBOUND if direction == "0" else None
                 )
             )
