@@ -7,7 +7,7 @@ from impuls.tools.polish_calendar_exceptions import (
 )
 from impuls.model import Date, CalendarException
 from impuls.tools.temporal import BoundedDateRange
-from .consts import WEEKDAY_CAL_ID, SAT_CAL_ID, SUN_CAL_ID, START_DATE, END_DATE
+from .consts import WEEKDAY_CAL_ID, SAT_CAL_ID, SUN_CAL_ID, SPEC_CAL_ID, START_DATE, END_DATE
 
 
 class CalendarExceptions(impuls.Task):
@@ -59,3 +59,11 @@ class CalendarExceptions(impuls.Task):
                     exception_type=CalendarException.Type.ADDED,
                 )
             )
+
+        r.db.create(
+            CalendarException(
+                calendar_id=SPEC_CAL_ID,
+                date="2025-08-31",
+                exception_type=CalendarException.Type.ADDED,
+            )
+        )
