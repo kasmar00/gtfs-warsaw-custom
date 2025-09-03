@@ -3,7 +3,7 @@ from impuls import DBConnection, Task, TaskRuntime
 from impuls.model import Calendar, Date, Route, Stop, StopTime, TimePoint, Trip
 import pandas as pd
 import uuid
-from .consts import WEEKDAY_CAL_ID, SAT_CAL_ID, SUN_CAL_ID, START_DATE, END_DATE
+from .consts import WEEKDAY_CAL_ID, SAT_CAL_ID, SUN_CAL_ID, SPEC_CAL_ID, START_DATE, END_DATE
 
 
 class LoadTrips(impuls.Task):
@@ -45,8 +45,14 @@ class LoadTrips(impuls.Task):
                 )
             )
 
+            r.db.create(
+                Calendar(
+                    id=SPEC_CAL_ID,
+                )
+            )
+
             # routes
-            for route in ["1", "2", "3", "4", "5"]:
+            for route in ["1", "2", "3", "4", "5", "6"]:
                 r.db.create(
                     Route(
                         id=route,
@@ -58,42 +64,45 @@ class LoadTrips(impuls.Task):
                 )
 
             files = [
-                ("M1-weekday.txt", WEEKDAY_CAL_ID, "1", "Serbinów przez Nowe Miasto", "M1"),
-                ("M1-saturday.txt", SAT_CAL_ID, "1", "Serbinów przez Nowe Miasto", "M1"),
-                ("M1-sunday.txt", SUN_CAL_ID, "1", "Serbinów przez Nowe Miasto", "M1"),
-                ("M1R-weekday.txt", WEEKDAY_CAL_ID, "1", "Plac Dworcowy", "M1R"),
-                ("M1R-saturday.txt", SAT_CAL_ID, "1", "Plac Dworcowy", "M1R"),
-                ("M1R-sunday.txt", SUN_CAL_ID, "1", "Plac Dworcowy", "M1R"),
+                ("M1-weekday.txt", WEEKDAY_CAL_ID, "1", "Serbinów przez Nowe Miasto", "M1", "0"),
+                ("M1-saturday.txt", SAT_CAL_ID, "1", "Serbinów przez Nowe Miasto", "M1", "0"),
+                ("M1-sunday.txt", SUN_CAL_ID, "1", "Serbinów przez Nowe Miasto", "M1", "0"),
+                ("M1R-weekday.txt", WEEKDAY_CAL_ID, "1", "Plac Dworcowy", "M1R", "1"),
+                ("M1R-saturday.txt", SAT_CAL_ID, "1", "Plac Dworcowy", "M1R", "1"),
+                ("M1R-sunday.txt", SUN_CAL_ID, "1", "Plac Dworcowy", "M1R", "1"),
 
-                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", "Serbinów przez Szpital", "M2"),
-                ("M2-saturday.txt", SAT_CAL_ID, "2", "Serbinów przez Szpital", "M2"),
-                ("M2-sunday.txt", SUN_CAL_ID, "2", "Serbinów przez Szpital", "M2"),
-                ("M2R-weekday.txt", WEEKDAY_CAL_ID, "2", "Plac Dworcowy", "M2R"),
-                ("M2R-saturday.txt", SAT_CAL_ID, "2", "Plac Dworcowy", "M2R"),
-                ("M2R-sunday.txt", SUN_CAL_ID, "2", "Plac Dworcowy", "M2R"),
+                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", "Serbinów przez Szpital", "M2", "0"),
+                ("M2-saturday.txt", SAT_CAL_ID, "2", "Serbinów przez Szpital", "M2", "0"),
+                ("M2-sunday.txt", SUN_CAL_ID, "2", "Serbinów przez Szpital", "M2", "0"),
+                ("M2R-weekday.txt", WEEKDAY_CAL_ID, "2", "Plac Dworcowy", "M2R", "1"),
+                ("M2R-saturday.txt", SAT_CAL_ID, "2", "Plac Dworcowy", "M2R", "1"),
+                ("M2R-sunday.txt", SUN_CAL_ID, "2", "Plac Dworcowy", "M2R", "1"),
 
-                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3-weekday"),
-                ("M3-saturday.txt", SAT_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3"),
-                ("M3-sunday.txt", SUN_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3"),
-                ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", "Mechanik", "M3R-weekday"),
-                ("M3R-saturday.txt", SAT_CAL_ID, "3", "Osiedlowa", "M3R"),
-                ("M3R-sunday.txt", SUN_CAL_ID, "3", "Osiedlowa", "M3R"),
+                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3-weekday", "0"),
+                ("M3-saturday.txt", SAT_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "0"),
+                ("M3-sunday.txt", SUN_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "0"),
+                ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", "Mechanik", "M3R-weekday", "1"),
+                ("M3R-saturday.txt", SAT_CAL_ID, "3", "Osiedlowa", "M3R", "1"),
+                ("M3R-sunday.txt", SUN_CAL_ID, "3", "Osiedlowa", "M3R", "1"),
 
-                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Spacerowa", "M4"),
-                ("M4-saturday.txt", SAT_CAL_ID, "4", "Spacerowa", "M4"),
-                ("M4-sunday.txt", SUN_CAL_ID, "4", "Spacerowa", "M4"),
-                ("M4R-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy", "M4R"),
-                ("M4R-saturday.txt", SAT_CAL_ID, "4", "Plac Dworcowy", "M4R"),
-                ("M4R-sunday.txt", SUN_CAL_ID, "4", "Plac Dworcowy", "M4R"),
+                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Spacerowa", "M4", "0"),
+                ("M4-saturday.txt", SAT_CAL_ID, "4", "Spacerowa", "M4", "0"),
+                ("M4-sunday.txt", SUN_CAL_ID, "4", "Spacerowa", "M4", "0"),
+                ("M4R-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy", "M4R", "1"),
+                ("M4R-saturday.txt", SAT_CAL_ID, "4", "Plac Dworcowy", "M4R", "1"),
+                ("M4R-sunday.txt", SUN_CAL_ID, "4", "Plac Dworcowy", "M4R", "1"),
 
-                ("Z3-weekday.txt", WEEKDAY_CAL_ID, "5", "Dźwigowa", "Z3"),
-                ("Z3R-weekday.txt", WEEKDAY_CAL_ID, "5", "Osiedlowa", "Z3R"),
+                ("Z3-weekday.txt", WEEKDAY_CAL_ID, "5", "Dźwigowa", "Z3", "0"),
+                ("Z3R-weekday.txt", WEEKDAY_CAL_ID, "5", "Osiedlowa", "Z3R", "1"),
+
+                ("S1.txt", SPEC_CAL_ID, "6", "Budowlana", "S1", "0"),
+                ("S1R.txt", SPEC_CAL_ID, "6", "Mechanik", "S1R", "1"),
             ]
 
             for file in files:
-                self.create_trips_from_file(file[0], file[1], file[2], file[3], file[4], r.db)
+                self.create_trips_from_file(file[0], file[1], file[2], file[3], file[4], file[5], r.db)
 
-    def create_trips_from_file(self, file, calendar, route, headsign, shape, db: DBConnection):
+    def create_trips_from_file(self, file, calendar, route, headsign, shape, direction, db: DBConnection):
         after_midnight = False
         has_blocks = False
         data = (
@@ -119,7 +128,8 @@ class LoadTrips(impuls.Task):
                     short_name=route,
                     headsign=headsign,
                     block_id=trip[0] if has_blocks else None,
-                    shape_id=shape if shape else None,
+                    shape_id=(shape + "A" if trip[1] == "~" else shape) if shape else None,
+                    direction=Trip.Direction.INBOUND if direction == "1" else Trip.Direction.OUTBOUND if direction == "0" else None
                 )
             )
 

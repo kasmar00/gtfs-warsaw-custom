@@ -12,6 +12,7 @@ class LoadShapes(impuls.Task):
         with r.db.transaction():
             shapes = [
                 "M1",
+                "M1A",
                 "M1R",
                 "M2",
                 "M2R",
@@ -20,9 +21,12 @@ class LoadShapes(impuls.Task):
                 "M3",
                 "M3R",
                 "M4",
+                "M4A",
                 "M4R",
                 "Z3",
                 "Z3R",
+                "S1",
+                "S1R",
             ]
             for shape in shapes:
                 self.create_shapes(shape, r.db)
