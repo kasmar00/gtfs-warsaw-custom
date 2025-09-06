@@ -99,7 +99,7 @@ class LoadTrips(impuls.Task):
                     calendar_id=calendar,
                     short_name=route,
                     block_id=trip[0] if has_blocks else None,
-                    shape_id="Z2M" if route=="2" else None, # Z2M has shape, others don't
+                    # shape_id="Z2M" if route=="2" else None, # Z2M has shape, others don't
                 )
             )
 
