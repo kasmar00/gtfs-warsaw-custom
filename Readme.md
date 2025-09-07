@@ -21,6 +21,11 @@ Some public transport agencies don't offer GTFS feeds, this project attempts at 
     Generated feed for bus routes in city of Mińsk Mazowiecki.
 
     Source PDF timetable and more info: https://zditmminskmaz.pl/komunikacja-miejska/
+4. `pgztppm` - [direct feed url](https://kasmar00.github.io/gtfs-warsaw-custom/feeds/pgztppm/latest.zip)
+
+   Generated feed for bus routes in miński county.
+
+   Source PDF timetable and more info: https://pgztppm.pl/
 
 (More to come, sooner or later...)
 
