@@ -10,10 +10,16 @@ class LoadShapes(impuls.Task):
         super().__init__()
 
     def execute(self, r: TaskRuntime) -> None:
-        return
         with r.db.transaction():
             shapes = [
-                "Z2M"
+                "Z1",
+                "Z2M",
+                "Z2MA",
+                "Z3",
+                "Z3A",
+                "Z4M",
+                "Z4MA",
+                "Z4MS",
             ]
             for shape in shapes:
                 self.create_shapes(shape, r.db)
