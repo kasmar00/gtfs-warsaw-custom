@@ -23,6 +23,8 @@ class LoadShapes(impuls.Task):
                 "M4R",
                 "Z3",
                 "Z3R",
+                "C1",
+                "C1R",
             ]
             for shape in shapes:
                 self.create_shapes(shape, r.db)

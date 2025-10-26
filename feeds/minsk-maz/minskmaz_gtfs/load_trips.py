@@ -3,7 +3,7 @@ from impuls import DBConnection, Task, TaskRuntime
 from impuls.model import Calendar, Date, Route, Stop, StopTime, TimePoint, Trip
 import pandas as pd
 import uuid
-from .consts import WEEKDAY_CAL_ID, SAT_CAL_ID, SUN_CAL_ID, START_DATE, END_DATE
+from .consts import WEEKDAY_CAL_ID, SAT_CAL_ID, SUN_CAL_ID, START_DATE, END_DATE, NOV_CAL_ID
 
 
 class LoadTrips(impuls.Task):
@@ -45,8 +45,14 @@ class LoadTrips(impuls.Task):
                 )
             )
 
+            r.db.create(
+                Calendar(
+                    id=NOV_CAL_ID,
+                )
+            )
+
             # routes
-            for route in ["1", "2", "3", "4", "5"]:
+            for route in ["1", "2", "3", "4", "5", "6"]:
                 r.db.create(
                     Route(
                         id=route,
@@ -79,6 +85,9 @@ class LoadTrips(impuls.Task):
 
                 ("Z3-weekday.txt", WEEKDAY_CAL_ID, "5", "Dźwigowa", "Z3", "", "0"),
                 ("Z3R-weekday.txt", WEEKDAY_CAL_ID, "5", "Osiedlowa", "Z3R", "", "1"),
+
+                ("C1.txt", NOV_CAL_ID, "6", "Cmentarz Brama Wschodnia", "C1", "", "0"),
+                ("C1R.txt", NOV_CAL_ID, "6", "Plac Dworcowy", "C1R", "", "1"),
             ]
 
             for file in files:

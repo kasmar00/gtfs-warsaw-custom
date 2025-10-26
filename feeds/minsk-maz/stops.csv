@@ -15,6 +15,7 @@ stop_id,stop_code,stop_name,stop_lat,stop_lon
 113,113,Mińsk Maz. Chrobrego 03,52.179420,21.584017
 114,114,Mińsk Maz. Cmentarz 05,52.184206,21.578475
 115,115,Mińsk Maz. Cmentarz 06,52.183876,21.579567
+225,225,Mińsk Maz. Cmentarz Brama Wschodnia 01,52.188779,21.580091
 116,116,Mińsk Maz. Cmentarz Żydowski 01,52.173150,21.584500
 117,117,Mińsk Maz. Cmentarz Żydowski 06,52.173020,21.584720
 118,118,Mińsk Maz. Dąbrówki 01,52.175166,21.581533
@@ -74,6 +75,8 @@ stop_id,stop_code,stop_name,stop_lat,stop_lon
 172,172,Mińsk Maz. Plac Dworcowy 01,52.176563,21.554028
 173,173,Mińsk Maz. Przedszkole Miejskie nr 5 01,52.180250,21.562650
 174,174,Mińsk Maz. Przedszkole Miejskie nr 5 02,52.179970,21.562890
+226,226,Mińsk Maz. Przemysłowa 07,52.185223,21.581054
+227,227,Mińsk Maz. Przemysłowa 08,52.186125,21.581558
 175,175,Mińsk Maz. Rondo Bitwy Warszawskiej 1920 r. 01,52.177994,21.558873
 176,176,Mińsk Maz. Rondo Dziąga 03,52.183129,21.576054
 177,177,Mińsk Maz. Rondo Dziąga 04,52.182908,21.575934
