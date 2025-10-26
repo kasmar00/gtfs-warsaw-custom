@@ -86,6 +86,15 @@ class LoadTrips(impuls.Task):
                 ("Z3-weekday.txt", WEEKDAY_CAL_ID, "5", "Dźwigowa", "Z3", "", "0"),
                 ("Z3R-weekday.txt", WEEKDAY_CAL_ID, "5", "Osiedlowa", "Z3R", "", "1"),
 
+                ("M1-special.txt", NOV_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1", "M1A", ""),
+
+                ("M2-sunday.txt", NOV_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""),
+
+                ("M3-sunday.txt", NOV_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "", "0"),
+                ("M3R-sunday.txt", NOV_CAL_ID, "3", "Osiedlowa", "M3R", "", "1"),
+
+                ("M4-sunday.txt", NOV_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "", ""),
+
                 ("C1.txt", NOV_CAL_ID, "6", "Cmentarz Brama Wschodnia", "C1", "", "0"),
                 ("C1R.txt", NOV_CAL_ID, "6", "Plac Dworcowy", "C1R", "", "1"),
             ]

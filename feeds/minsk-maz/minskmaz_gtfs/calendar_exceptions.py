@@ -74,3 +74,17 @@ class CalendarExceptions(impuls.Task):
                 exception_type=CalendarException.Type.ADDED,
             )
         )
+        r.db.update(
+            CalendarException(
+                calendar_id=SUN_CAL_ID,
+                date="2025-11-01",
+                exception_type=CalendarException.Type.REMOVED,
+            )
+        )
+        r.db.create(
+            CalendarException(
+                calendar_id=SUN_CAL_ID,
+                date="2025-11-02",
+                exception_type=CalendarException.Type.REMOVED,
+            )
+        )
