@@ -12,15 +12,12 @@ class LoadShapes(impuls.Task):
         with r.db.transaction():
             shapes = [
                 "M1",
-                "M1R",
                 "M2",
-                "M2R",
                 "M3-weekday",
                 "M3R-weekday",
                 "M3",
                 "M3R",
                 "M4",
-                "M4R",
                 "Z3",
                 "Z3R",
             ]

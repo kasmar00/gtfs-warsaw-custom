@@ -58,33 +58,24 @@ class LoadTrips(impuls.Task):
                 )
 
             files = [
-                ("M1-weekday.txt", WEEKDAY_CAL_ID, "1", "Serbinów przez Nowe Miasto", "M1"),
-                ("M1-saturday.txt", SAT_CAL_ID, "1", "Serbinów przez Nowe Miasto", "M1"),
-                ("M1-sunday.txt", SUN_CAL_ID, "1", "Serbinów przez Nowe Miasto", "M1"),
-                ("M1R-weekday.txt", WEEKDAY_CAL_ID, "1", "Plac Dworcowy", "M1R"),
-                ("M1R-saturday.txt", SAT_CAL_ID, "1", "Plac Dworcowy", "M1R"),
-                ("M1R-sunday.txt", SUN_CAL_ID, "1", "Plac Dworcowy", "M1R"),
+                ("M1-weekday.txt", WEEKDAY_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1"),
+                ("M1-saturday.txt", SAT_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1"),
+                ("M1-sunday.txt", SUN_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1"),
 
-                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", "Serbinów przez Szpital", "M2"),
-                ("M2-saturday.txt", SAT_CAL_ID, "2", "Serbinów przez Szpital", "M2"),
-                ("M2-sunday.txt", SUN_CAL_ID, "2", "Serbinów przez Szpital", "M2"),
-                ("M2R-weekday.txt", WEEKDAY_CAL_ID, "2", "Plac Dworcowy", "M2R"),
-                ("M2R-saturday.txt", SAT_CAL_ID, "2", "Plac Dworcowy", "M2R"),
-                ("M2R-sunday.txt", SUN_CAL_ID, "2", "Plac Dworcowy", "M2R"),
+                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2"), #TODO: ring line pl. dworcowy -> pl dworcowy
+                ("M2-saturday.txt", SAT_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2"),
+                ("M2-sunday.txt", SUN_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2"),
 
-                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3-weekday"),
+                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3-weekday"), #TODO
                 ("M3-saturday.txt", SAT_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3"),
                 ("M3-sunday.txt", SUN_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3"),
                 ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", "Mechanik", "M3R-weekday"),
                 ("M3R-saturday.txt", SAT_CAL_ID, "3", "Osiedlowa", "M3R"),
                 ("M3R-sunday.txt", SUN_CAL_ID, "3", "Osiedlowa", "M3R"),
 
-                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Spacerowa", "M4"),
-                ("M4-saturday.txt", SAT_CAL_ID, "4", "Spacerowa", "M4"),
-                ("M4-sunday.txt", SUN_CAL_ID, "4", "Spacerowa", "M4"),
-                ("M4R-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy", "M4R"),
-                ("M4R-saturday.txt", SAT_CAL_ID, "4", "Plac Dworcowy", "M4R"),
-                ("M4R-sunday.txt", SUN_CAL_ID, "4", "Plac Dworcowy", "M4R"),
+                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4"), #TODO: Ring line pl. dworcowy -> pl dworcowy
+                ("M4-saturday.txt", SAT_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4"),
+                ("M4-sunday.txt", SUN_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4"),
 
                 ("Z3-weekday.txt", WEEKDAY_CAL_ID, "5", "Dźwigowa", "Z3"),
                 ("Z3R-weekday.txt", WEEKDAY_CAL_ID, "5", "Osiedlowa", "Z3R"),
