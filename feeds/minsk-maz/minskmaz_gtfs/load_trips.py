@@ -62,18 +62,18 @@ class LoadTrips(impuls.Task):
                 ("M1-saturday.txt", SAT_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1", "", ""),
                 ("M1-sunday.txt", SUN_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1", "", ""),
 
-                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""), #TODO: ring line pl. dworcowy -> pl dworcowy
+                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""),
                 ("M2-saturday.txt", SAT_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""),
                 ("M2-sunday.txt", SUN_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""),
 
-                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3-weekday", "", "0"), #TODO
+                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3-weekday", "", "0"),
                 ("M3-saturday.txt", SAT_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "", "0"),
                 ("M3-sunday.txt", SUN_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "", "0"),
                 ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", "Mechanik", "M3R-weekday", "", "1"),
                 ("M3R-saturday.txt", SAT_CAL_ID, "3", "Osiedlowa", "M3R", "", "1"),
                 ("M3R-sunday.txt", SUN_CAL_ID, "3", "Osiedlowa", "M3R", "", "1"),
 
-                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "M4A", ""), #TODO: Ring line pl. dworcowy -> pl dworcowy
+                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "M4A", ""),
                 ("M4-saturday.txt", SAT_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "M4R", ""),
                 ("M4-sunday.txt", SUN_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "", ""),
 
