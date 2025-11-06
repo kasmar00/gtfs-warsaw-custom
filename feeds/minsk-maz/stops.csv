@@ -33,8 +33,6 @@ stop_id,stop_code,stop_name,stop_lat,stop_lon
 131,131,Mińsk Maz. Karolina 04,52.191719,21.572509
 132,132,Mińsk Maz. Kazikowskiego 02,52.179700,21.560517
 133,133,Mińsk Maz. Kazikowskiego 03,52.179897,21.561024
-134,134,Mińsk Maz. Kędzierak 01,52.164331,21.529217
-135,135,Mińsk Maz. Kędzierak 02,52.164387,21.528955
 136,136,Mińsk Maz. Klonowa 45,52.167284,21.568447
 137,137,Mińsk Maz. Klonowa Osiedle 03,52.166145,21.571734
 138,138,Mińsk Maz. Kościelna 01,52.180520,21.573440
@@ -65,7 +63,6 @@ stop_id,stop_code,stop_name,stop_lat,stop_lon
 163,163,Mińsk Maz. Nowy Świat 01,52.192611,21.553757
 164,164,Mińsk Maz. Nowy Świat 06,52.192680,21.553923
 165,165,Mińsk Maz. Okrzei 04,52.180342,21.557958
-166,166,Mińsk Maz. Osiedlowa 01,52.165152,21.524212
 167,167,Mińsk Maz. Osiedlowa 12,52.165229,21.524613
 168,168,Mińsk Maz. PKP Anielina 01,52.168660,21.586355
 169,169,Mińsk Maz. PKP Anielina 02,52.168462,21.586057
@@ -110,8 +107,6 @@ stop_id,stop_code,stop_name,stop_lat,stop_lon
 208,208,Mińsk Maz. Warszawskie Przedmieście - Osiedle 02,52.188450,21.544460
 209,209,Mińsk Maz. Warszawskie Przedmieście 03,52.187630,21.548350
 210,210,Mińsk Maz. Warszawskie Przedmieście 04,52.187520,21.548000
-211,211,Mińsk Maz. Wiejska 01,52.165404,21.539463
-212,212,Mińsk Maz. Wiejska 02,52.165397,21.538943
 213,213,Mińsk Maz. Widok 17,52.173540,21.549050
 214,214,Mińsk Maz. Widok 18,52.173716,21.550192
 215,215,Mińsk Maz. Zespół Szkolno-Przedszkolny nr 1 02,52.177408,21.576096

@@ -46,7 +46,7 @@ class LoadTrips(impuls.Task):
             )
 
             # routes
-            for route in ["1", "2", "3", "4", "5"]:
+            for route in ["1", "2", "3", "4"]:
                 r.db.create(
                     Route(
                         id=route,
@@ -66,19 +66,16 @@ class LoadTrips(impuls.Task):
                 ("M2-saturday.txt", SAT_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""),
                 ("M2-sunday.txt", SUN_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""),
 
-                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3-weekday", "", "0"),
+                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "", "0"),
                 ("M3-saturday.txt", SAT_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "", "0"),
                 ("M3-sunday.txt", SUN_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "", "0"),
-                ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", "Mechanik", "M3R-weekday", "", "1"),
+                ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", "Osiedlowa", "M3R", "", "1"),
                 ("M3R-saturday.txt", SAT_CAL_ID, "3", "Osiedlowa", "M3R", "", "1"),
                 ("M3R-sunday.txt", SUN_CAL_ID, "3", "Osiedlowa", "M3R", "", "1"),
 
                 ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "M4A", ""),
                 ("M4-saturday.txt", SAT_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "M4R", ""),
                 ("M4-sunday.txt", SUN_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "", ""),
-
-                ("Z3-weekday.txt", WEEKDAY_CAL_ID, "5", "Dźwigowa", "Z3", "", "0"),
-                ("Z3R-weekday.txt", WEEKDAY_CAL_ID, "5", "Osiedlowa", "Z3R", "", "1"),
             ]
 
             for file in files:
