@@ -17,6 +17,23 @@ class CalendarExceptions(impuls.Task):
             Date.from_ymd_str(START_DATE), Date.from_ymd_str(END_DATE)
         )
 
+    @staticmethod
+    def override_day(r: TaskRuntime, date: str, removed: str, added: str):
+        r.db.create(
+            CalendarException(
+                calendar_id=removed,
+                date=date,
+                exception_type=CalendarException.Type.REMOVED,
+            )
+        )
+        r.db.create(
+            CalendarException(
+                calendar_id=added,
+                date=date,
+                exception_type=CalendarException.Type.ADDED,
+            )
+        )
+
     def execute(self, r: TaskRuntime):
 
         exceptions = load_exceptions(
@@ -60,17 +77,12 @@ class CalendarExceptions(impuls.Task):
                 )
             )
 
-        r.db.create(
-            CalendarException(
-                calendar_id=WEEKDAY_CAL_ID,
-                date="2025-11-10",
-                exception_type=CalendarException.Type.REMOVED,
-            )
-        )
-        r.db.create(
-            CalendarException(
-                calendar_id=SAT_CAL_ID,
-                date="2025-11-10",
-                exception_type=CalendarException.Type.ADDED,
-            )
-        )
+        self.override_day(r, "2025-11-10", WEEKDAY_CAL_ID, SAT_CAL_ID)
+
+        self.override_day(r, "2025-12-14", SUN_CAL_ID, SAT_CAL_ID)
+        self.override_day(r, "2025-12-21", SUN_CAL_ID, SAT_CAL_ID)
+
+        self.override_day(r, "2025-12-24", WEEKDAY_CAL_ID, SUN_CAL_ID)
+
+        self.override_day(r, "2026-01-02", WEEKDAY_CAL_ID, SAT_CAL_ID)
+        self.override_day(r, "2026-01-05", WEEKDAY_CAL_ID, SAT_CAL_ID)
