@@ -59,22 +59,22 @@ class LoadTrips(impuls.Task):
                 )
 
             files = [
-                ("Z1-weekday.txt", WEEKDAY_CAL_ID, "1"),
-                ("Z1-saturday.txt", SAT_CAL_ID, "1"),
-                ("Z1-sunday.txt", SUN_CAL_ID, "1"),
-                ("Z2M-weekday.txt", WEEKDAY_CAL_ID, "2"),
-                ("Z3-weekday.txt", WEEKDAY_CAL_ID, "3"),
-                ("Z3-saturday.txt", SAT_CAL_ID, "3"),
-                ("Z3-sunday.txt", SUN_CAL_ID, "3"),
-                ("Z4M-weekday.txt", WEEKDAY_CAL_ID, "4"),
-                ("Z4M-saturday.txt", SAT_CAL_ID, "4"),
-                ("Z4M-sunday.txt", SUN_CAL_ID, "4"),
+                ("Z1-weekday.txt", WEEKDAY_CAL_ID, "1", "Z1"),
+                ("Z1-saturday.txt", SAT_CAL_ID, "1", "Z1"),
+                ("Z1-sunday.txt", SUN_CAL_ID, "1", "Z1"),
+                ("Z2M-weekday.txt", WEEKDAY_CAL_ID, "2", "Z2M"),
+                ("Z3-weekday.txt", WEEKDAY_CAL_ID, "3", "Z3"),
+                ("Z3-saturday.txt", SAT_CAL_ID, "3", "Z3"),
+                ("Z3-sunday.txt", SUN_CAL_ID, "3", "Z3"),
+                ("Z4M-weekday.txt", WEEKDAY_CAL_ID, "4", "Z4M"),
+                ("Z4M-saturday.txt", SAT_CAL_ID, "4", "Z4MS"),
+                ("Z4M-sunday.txt", SUN_CAL_ID, "4", "Z4MS"),
             ]
 
             for file in files:
-                self.create_trips_from_file(file[0], file[1], file[2], r.db)
+                self.create_trips_from_file(file[0], file[1], file[2], file[3], r.db)
 
-    def create_trips_from_file(self, file, calendar, route, db: DBConnection):
+    def create_trips_from_file(self, file, calendar, route, shape, db: DBConnection):
         after_midnight = False
         has_blocks = False
         data = (
@@ -99,7 +99,7 @@ class LoadTrips(impuls.Task):
                     calendar_id=calendar,
                     short_name=route,
                     block_id=trip[0] if has_blocks else None,
-                    # shape_id="Z2M" if route=="2" else None, # Z2M has shape, others don't
+                    shape_id=(shape + "A" if "~" in trip else shape) if shape else None,
                 )
             )
 
