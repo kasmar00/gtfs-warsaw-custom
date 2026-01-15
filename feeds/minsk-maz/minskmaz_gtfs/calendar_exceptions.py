@@ -82,7 +82,7 @@ class CalendarExceptions(impuls.Task):
         self.override_day(r, "2025-12-14", SUN_CAL_ID, SAT_CAL_ID)
         self.override_day(r, "2025-12-21", SUN_CAL_ID, SAT_CAL_ID)
 
-        self.override_day(r, "2025-12-24", WEEKDAY_CAL_ID, SUN_CAL_ID)
+        # self.override_day(r, "2025-12-24", WEEKDAY_CAL_ID, SUN_CAL_ID)
 
         self.override_day(r, "2026-01-02", WEEKDAY_CAL_ID, SAT_CAL_ID)
         self.override_day(r, "2026-01-05", WEEKDAY_CAL_ID, SAT_CAL_ID)

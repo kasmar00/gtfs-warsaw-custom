@@ -1,9 +1,29 @@
+from typing import NamedTuple, Optional
 import impuls
 from impuls import DBConnection, Task, TaskRuntime
 from impuls.model import Calendar, Date, Route, Stop, StopTime, TimePoint, Trip
 import pandas as pd
 import uuid
 from .consts import WEEKDAY_CAL_ID, SAT_CAL_ID, SUN_CAL_ID, START_DATE, END_DATE
+
+
+class HeadSignDefinition(NamedTuple):
+    initial: str
+    change_stop_id: Optional[str]
+    final: Optional[str]
+    legacy_headsign: Optional[str]
+
+    def get_headsign(self, is_after_change_stop):
+        if is_after_change_stop:
+            return self.final
+        else:
+            return self.initial
+
+HEADSIGN_M1 = HeadSignDefinition("Serbinów", "182", "Plac Dworcowy", "Plac Dworcowy przez Serbinów, Nowe Miasto")
+HEADSIGN_M2 = HeadSignDefinition("Serbinów", "182", "Plac Dworcowy", "Plac Dworcowy przez Serbinów, Szpital")
+HEADSIGN_M3 = HeadSignDefinition("Rondo Żołnierzy Wyklętych", None, None, "Rondo Żołnierzy Wyklętych")
+HEADSIGN_M3R = HeadSignDefinition("Osiedlowa", None, None, "Osiedlowa")
+HEADSIGN_M4 = HeadSignDefinition("Spacerowa", "188", "Plac Dworcowy", "Plac Dworcowy przez Spacerowa")
 
 
 class LoadTrips(impuls.Task):
@@ -58,30 +78,30 @@ class LoadTrips(impuls.Task):
                 )
 
             files = [
-                ("M1-weekday.txt", WEEKDAY_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1", "M1A", ""),
-                ("M1-saturday.txt", SAT_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1", "", ""),
-                ("M1-sunday.txt", SUN_CAL_ID, "1", "Plac Dworcowy przez Serbinów, Nowe Miasto", "M1", "", ""),
+                ("M1-weekday.txt", WEEKDAY_CAL_ID, "1", HEADSIGN_M1, "M1", "M1A", ""),
+                ("M1-saturday.txt", SAT_CAL_ID, "1", HEADSIGN_M1, "M1", "", ""),
+                ("M1-sunday.txt", SUN_CAL_ID, "1", HEADSIGN_M1, "M1", "", ""),
 
-                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""),
-                ("M2-saturday.txt", SAT_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""),
-                ("M2-sunday.txt", SUN_CAL_ID, "2", "Plac Dworcowy przez Serbinów, Szpital", "M2", "", ""),
+                ("M2-weekday.txt", WEEKDAY_CAL_ID, "2", HEADSIGN_M2, "M2", "", ""),
+                ("M2-saturday.txt", SAT_CAL_ID, "2", HEADSIGN_M2, "M2", "", ""),
+                ("M2-sunday.txt", SUN_CAL_ID, "2", HEADSIGN_M2, "M2", "", ""),
 
-                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "", "0"),
-                ("M3-saturday.txt", SAT_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "", "0"),
-                ("M3-sunday.txt", SUN_CAL_ID, "3", "Rondo Żołnierzy Wyklętych", "M3", "", "0"),
-                ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", "Osiedlowa", "M3R", "", "1"),
-                ("M3R-saturday.txt", SAT_CAL_ID, "3", "Osiedlowa", "M3R", "", "1"),
-                ("M3R-sunday.txt", SUN_CAL_ID, "3", "Osiedlowa", "M3R", "", "1"),
+                ("M3-weekday.txt", WEEKDAY_CAL_ID, "3", HEADSIGN_M3, "M3", "", "0"),
+                ("M3-saturday.txt", SAT_CAL_ID, "3", HEADSIGN_M3, "M3", "", "0"),
+                ("M3-sunday.txt", SUN_CAL_ID, "3", HEADSIGN_M3, "M3", "", "0"),
+                ("M3R-weekday.txt", WEEKDAY_CAL_ID, "3", HEADSIGN_M3R, "M3R", "", "1"),
+                ("M3R-saturday.txt", SAT_CAL_ID, "3", HEADSIGN_M3R, "M3R", "", "1"),
+                ("M3R-sunday.txt", SUN_CAL_ID, "3", HEADSIGN_M3R, "M3R", "", "1"),
 
-                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "M4A", ""),
-                ("M4-saturday.txt", SAT_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "M4R", ""),
-                ("M4-sunday.txt", SUN_CAL_ID, "4", "Plac Dworcowy przez Spacerowa", "M4", "", ""),
+                ("M4-weekday.txt", WEEKDAY_CAL_ID, "4", HEADSIGN_M4, "M4", "M4A", ""),
+                ("M4-saturday.txt", SAT_CAL_ID, "4", HEADSIGN_M4, "M4", "M4R", ""),
+                ("M4-sunday.txt", SUN_CAL_ID, "4", HEADSIGN_M4, "M4", "", ""),
             ]
 
             for file in files:
                 self.create_trips_from_file(file[0], file[1], file[2], file[3], file[4], file[5], file[6], r.db)
 
-    def create_trips_from_file(self, file, calendar, route, headsign, shape, shape_alt, direction, db: DBConnection):
+    def create_trips_from_file(self, file, calendar, route, headsign: HeadSignDefinition, shape, shape_alt, direction, db: DBConnection):
         after_midnight = False
         has_blocks = False
         data = (
@@ -96,8 +116,10 @@ class LoadTrips(impuls.Task):
                 continue
             self.create_stop(int(stop), db)
         for trip in data[1:]:
+            actual_shape = (shape_alt if trip[1] == "~" and shape_alt else shape) if shape else None
 
-            trip_id = str(uuid.uuid4())
+            first_non_empty_time = next(time for time in trip[1:] if time != "~")
+            trip_id = f"{calendar}_{actual_shape}_{first_non_empty_time}"
 
             db.create(
                 Trip(
@@ -105,12 +127,14 @@ class LoadTrips(impuls.Task):
                     route_id=route,
                     calendar_id=calendar,
                     short_name=route,
-                    headsign=headsign,
+                    headsign=headsign.legacy_headsign,
                     block_id=trip[0] if has_blocks else None,
-                    shape_id=(shape_alt if trip[1] == "~" and shape_alt else shape) if shape else None,
+                    shape_id=actual_shape,
                     direction=Trip.Direction.INBOUND if direction == "1" else Trip.Direction.OUTBOUND if direction == "0" else None
                 )
             )
+
+            is_after_headsign_change = False
 
             for i in range(len(trip)):
                 if (i == 0 and has_blocks):
@@ -136,6 +160,9 @@ class LoadTrips(impuls.Task):
                 else:
                     arrival_time = departure_time
 
+                if stops[i] == headsign.change_stop_id:
+                    is_after_headsign_change = True
+
                 db.create(
                     StopTime(
                         trip_id=trip_id,
@@ -143,6 +170,7 @@ class LoadTrips(impuls.Task):
                         stop_sequence=i,
                         arrival_time=arrival_time,
                         departure_time=departure_time,
+                        stop_headsign=headsign.get_headsign(is_after_headsign_change),
                     )
                 )
 

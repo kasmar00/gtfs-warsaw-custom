@@ -44,6 +44,7 @@ GTFS_HEADERS = {
         "stop_id",
         "arrival_time",
         "departure_time",
+        "stop_headsign",
     ),
     "calendar_dates.txt": ("service_id", "date", "exception_type"),
     "transfers.txt": (
