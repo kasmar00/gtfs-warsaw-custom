@@ -116,7 +116,7 @@ class ZabkiGTFS(impuls.App):
                 LoadTrips(),
                 CalendarExceptions(),
                 impuls.tasks.ModifyRoutesFromCSV("routes.csv", must_curate_all=True),
-                impuls.tasks.ModifyStopsFromCSV("stops.csv"),
+                impuls.tasks.ModifyStopsFromCSV("stops.csv", must_curate_all=True),
                 impuls.tasks.GenerateTripHeadsign(),
                 impuls.tasks.SaveGTFS(
                     headers=GTFS_HEADERS,
