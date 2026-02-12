@@ -90,7 +90,8 @@ class LoadTrips(impuls.Task):
             self.create_stop(int(stop), db)
         for trip in data[1:]:
 
-            trip_id = str(uuid.uuid4())
+            first_non_empty_time = next(time for time in trip[1:] if time != "~")
+            trip_id = f"{calendar}_{route}_{first_non_empty_time}"
 
             db.create(
                 Trip(
