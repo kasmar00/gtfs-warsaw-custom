@@ -19,8 +19,8 @@ class HeadSignDefinition(NamedTuple):
         else:
             return self.initial
 
-HEADSIGN_M1 = HeadSignDefinition("Serbinów", "182", "Plac Dworcowy", "Plac Dworcowy przez Serbinów, Nowe Miasto")
-HEADSIGN_M2 = HeadSignDefinition("Serbinów", "182", "Plac Dworcowy", "Plac Dworcowy przez Serbinów, Szpital")
+HEADSIGN_M1 = HeadSignDefinition("Łupińskiego", "217", "Plac Dworcowy", "Plac Dworcowy przez Serbinów, Nowe Miasto")
+HEADSIGN_M2 = HeadSignDefinition("Łupińskiego", "217", "Plac Dworcowy", "Plac Dworcowy przez Serbinów, Szpital")
 HEADSIGN_M3 = HeadSignDefinition("Rondo Żołnierzy Wyklętych", None, None, "Rondo Żołnierzy Wyklętych")
 HEADSIGN_M3R = HeadSignDefinition("Osiedlowa", None, None, "Osiedlowa")
 HEADSIGN_M4 = HeadSignDefinition("Spacerowa", "188", "Plac Dworcowy", "Plac Dworcowy przez Spacerowa")
