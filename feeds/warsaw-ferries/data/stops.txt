@@ -1,0 +1,9 @@
+stop_id,stop_name,stop_lat,stop_lon
+W1L,Cypel Czerniakowski,52.229937,21.043464
+W1R,Plaża Saska Kępa,52.228011,21.049265
+W2R,Plaża Poniatówka,52.236963,21.041113
+W2L,Most Poniatowskiego,52.235643,21.038298
+W3L,Podzamcze,52.254184,21.013858
+W3R,Plaża Zoo,52.253764,21.018868
+DL,Przystań Młociny,52.320318,20.927824
+DR,Przystań Nowodwory,52.330462,20.927108
