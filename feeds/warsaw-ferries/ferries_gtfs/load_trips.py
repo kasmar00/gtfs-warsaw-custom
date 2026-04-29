@@ -69,6 +69,7 @@ class LoadTrips(impuls.Task):
                                         calendar_id=calendar,
                                         bikes_allowed=True,
                                         wheelchair_accessible=True,
+                                        shape_id=stop,
                                     )
                                 )
                                 time = impuls.model.TimePoint.from_str(

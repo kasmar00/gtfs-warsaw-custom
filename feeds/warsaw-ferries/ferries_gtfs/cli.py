@@ -4,6 +4,7 @@ import argparse
 from .consts import START_DATE, END_DATE
 from .load_trips import LoadTrips
 from .calendar import LoadCalendar
+from .shapes import LoadShapes
 
 GTFS_HEADERS = {
     "agency.txt": (
@@ -111,7 +112,7 @@ class FerriesGTFS(impuls.App):
                     ),
                     task_name="AddFeedInfo",
                 ),
-                # LoadShapes(),
+                LoadShapes(),
                 LoadTrips(),
                 LoadCalendar(),
                 impuls.tasks.ModifyRoutesFromCSV("routes.csv", must_curate_all=True),
