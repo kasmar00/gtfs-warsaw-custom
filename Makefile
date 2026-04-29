@@ -1,7 +1,7 @@
 all: feeds publish
 
 feeds/warsaw-ferries/latest.zip:
-	cd feeds/warsaw-ferries && zip -j ../warsaw-ferries/latest.zip *.txt
+	$(MAKE) -C feeds/warsaw-ferries
 
 feeds/zabki/latest.zip:
 	$(MAKE) -C feeds/zabki
@@ -16,7 +16,8 @@ publish:
 feeds: feeds/warsaw-ferries/latest.zip feeds/zabki/latest.zip feeds/minsk-maz/latest.zip
 
 clean:
-	find . -name "*.zip" -type f -delete
+# 	find . -name "*.zip" -type f -delete
 	rm -rf out
 	$(MAKE) -C feeds/zabki clean
 	$(MAKE) -C feeds/minsk-maz clean
+	$(MAKE) -C feeds/warsaw-ferries clean

@@ -1,5 +1,5 @@
 latest.zip: .venv
-	. .venv/bin/activate; python3 -m minskmaz_gtfs -f
+	. .venv/bin/activate; python3 -m ferries_gtfs -f
 
 .venv: .venv/touchfile
 

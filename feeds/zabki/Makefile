@@ -1,5 +1,5 @@
 latest.zip: .venv
-	. .venv/bin/activate; python3 -m zabki_gtfs
+	. .venv/bin/activate; python3 -m zabki_gtfs -f
 
 .venv: .venv/touchfile
 
