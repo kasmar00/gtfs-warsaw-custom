@@ -8,3 +8,12 @@ W3R,Plaża Zoo,52.253764,21.018868
 DL,Przystań Młociny,52.320318,20.927824
 DR,Przystań Nowodwory,52.330462,20.927108
 GK,Gruba Kaśka,52.221673,21.056408
+KP-DS01,DS Riviera 01,52.2159872,21.0151522
+KP-DS02,DS Riviera 02,52.2162352,21.0159652
+KP-MW01,Metro Wilanowska 01,52.1815463,21.0219763
+KP-MW02,Metro Wilanowska 02,52.1814082,21.0231822
+KP-PK01,Piaseczno Kolejka Piaseczyńska 01,
+KP-PK03,Piaseczno Kolejka Piaseczyńska 03,
+KP-P,Piaseczno Miasto Wąskotorowe,52.0701889,21.0239428
+KP-R,Runów,52.0192808,20.9345864
+KP-T,Tarczyn Wąskotorowy,51.9809715,20.8735748

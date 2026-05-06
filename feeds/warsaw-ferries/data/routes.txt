@@ -4,3 +4,5 @@ W2,1,W2,Pliszka W2,4,011e49,FFFFFF,
 W3,1,W3,Wilga W3,4,011e49,FFFFFF,
 D,2,Prom Dudek,,4,345b75,FFFFFF,
 K,1,Statek Kopernik,,4,011e49,FFFFFF,https://wodnytramwaj.pl/
+51,1,51,,3,4b1f5f,FFFFFF,
+KP,1,Piaseczyńsko-Grójecka Kolej Wąskotorowa,,2,346127,FFFFFF,

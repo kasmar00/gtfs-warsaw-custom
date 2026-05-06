@@ -6,6 +6,7 @@ from .load_trips import LoadTrips
 from .calendar import LoadCalendar
 from .shapes import LoadShapes
 from .kopernik import LoadKopernik
+from .piaseczno import LoadPiaseczno
 
 GTFS_HEADERS = {
     "agency.txt": (
@@ -117,6 +118,7 @@ class FerriesGTFS(impuls.App):
                 LoadTrips(),
                 LoadCalendar(),
                 LoadKopernik(),
+                LoadPiaseczno(),
                 impuls.tasks.ModifyRoutesFromCSV("routes.csv", must_curate_all=True),
                 impuls.tasks.ModifyStopsFromCSV("stops.csv", must_curate_all=True),
                 impuls.tasks.GenerateTripHeadsign(),
