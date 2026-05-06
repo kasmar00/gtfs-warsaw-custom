@@ -1,8 +1,8 @@
 route_id,agency_id,route_short_name,route_long_name,route_type,route_color,route_text_color,route_url
-W1,1,W1,Słonka W1,4,011e49,FFFFFF,
-W2,1,W2,Pliszka W2,4,011e49,FFFFFF,
-W3,1,W3,Wilga W3,4,011e49,FFFFFF,
-D,2,Prom Dudek,,4,345b75,FFFFFF,
-K,1,Statek Kopernik,,4,011e49,FFFFFF,https://wodnytramwaj.pl/
+W1,1,Słonka,Słonka W1,4,011e49,FFFFFF,
+W2,1,Pliszka,Pliszka W2,4,011e49,FFFFFF,
+W3,1,Wilga,Wilga W3,4,011e49,FFFFFF,
+D,2,Dudek,Prom Dudek,4,345b75,FFFFFF,
+K,1,Kopernik,Statek Kopernik,4,011e49,FFFFFF,https://wodnytramwaj.pl/
 51,1,51,,3,4b1f5f,FFFFFF,
-KP,1,Piaseczyńsko-Grójecka Kolej Wąskotorowa,,2,346127,FFFFFF,
+KP,1,KP,Piaseczyńsko-Grójecka Kolej Wąskotorowa,2,346127,FFFFFF,
