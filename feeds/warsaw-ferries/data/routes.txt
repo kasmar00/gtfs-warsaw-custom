@@ -6,3 +6,4 @@ D,2,Dudek,Prom Dudek,4,345b75,FFFFFF,
 K,1,Kopernik,Statek Kopernik,4,011e49,FFFFFF,https://wodnytramwaj.pl/
 51,1,51,,3,4b1f5f,FFFFFF,
 KP,1,KP,Piaseczyńsko-Grójecka Kolej Wąskotorowa,2,346127,FFFFFF,
+S,1,Zefir,Statek Do Serocka,4,011e49,FFFFFF,
