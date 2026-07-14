@@ -8,6 +8,7 @@ from .shapes import LoadShapes
 from .kopernik import LoadKopernik
 from .piaseczno import LoadPiaseczno
 from .serock import LoadSerock
+from .dudek import LoadDudek
 
 GTFS_HEADERS = {
     "agency.txt": (
@@ -95,16 +96,16 @@ class FerriesGTFS(impuls.App):
                     ),
                     task_name="AddAgency",
                 ),
-                # impuls.tasks.AddEntity(
-                #     impuls.model.Agency(
-                #         id="2",
-                #         name="Prom Dudek",
-                #         url="https://www.facebook.com/p/Prom-Dudek-61559135011810/",
-                #         timezone="Europe/Warsaw",
-                #         lang="pl",
-                #     ),
-                #     task_name="AddAgency",
-                # ),
+                impuls.tasks.AddEntity(
+                    impuls.model.Agency(
+                        id="2",
+                        name="Prom Dudek",
+                        url="https://www.facebook.com/p/Prom-Dudek-61559135011810/",
+                        timezone="Europe/Warsaw",
+                        lang="pl",
+                    ),
+                    task_name="AddAgency",
+                ),
                 impuls.tasks.AddEntity(
                     impuls.model.FeedInfo(
                         publisher_name="kasmar00",
@@ -122,6 +123,7 @@ class FerriesGTFS(impuls.App):
                 LoadKopernik(),
                 LoadPiaseczno(),
                 LoadSerock(),
+                LoadDudek(),
                 impuls.tasks.ModifyRoutesFromCSV("routes.csv", must_curate_all=True),
                 impuls.tasks.ModifyStopsFromCSV("stops.csv", must_curate_all=True),
                 impuls.tasks.GenerateTripHeadsign(),
